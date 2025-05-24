@@ -12,32 +12,42 @@ export default mergeConfig(
   viteConfig,
   defineConfig({
     test: {
-      environment: 'jsdom',
-      exclude: [...configDefaults.exclude, 'e2e/**'],
-      root: fileURLToPath(new URL('./', import.meta.url)),
-    },
-  }),
-  defineConfig({
-    plugins: [
-      storybookTest({
-        // The location of your Storybook config, main.js|ts
-        configDir: path.join(dirname, '.storybook'),
-        // This should match your package.json script to run Storybook
-        // The --ci flag will skip prompts and not open a browser
-        storybookScript: 'yarn storybook --ci',
-      }),
-      storybookVuePlugin(),
-    ],
-    test: {
-      // Enable browser mode
-      browser: {
-        enabled: true,
-        name: 'chromium',
-        // Make sure to install Playwright
-        provider: 'playwright',
-        headless: true,
-      },
-      setupFiles: ['./.storybook/vitest.setup.ts'],
+      workspace: [
+        {
+          extends: true,
+          test: {
+            environment: 'jsdom',
+            exclude: [...configDefaults.exclude, ''],
+            root: fileURLToPath(new URL('./', import.meta.url)),
+            name: 'unit-tests',
+          },
+        },
+        {
+          extends: true,
+          plugins: [
+            storybookTest({
+              // The location of your Storybook config, main.js|ts
+              configDir: path.join(dirname, '.storybook'),
+              // This should match your package.json script to run Storybook
+              // The --ci flag will skip prompts and not open a browser
+              storybookScript: 'yarn storybook --ci',
+            }),
+            storybookVuePlugin(),
+          ],
+          test: {
+            // Enable browser mode
+            browser: {
+              enabled: true,
+              name: 'chromium',
+              // Make sure to install Playwright
+              provider: 'playwright',
+              headless: true,
+            },
+            setupFiles: ['./.storybook/vitest.setup.ts'],
+            name: 'storybook',
+          },
+        },
+      ],
     },
   }),
 )
