@@ -17,7 +17,7 @@ const { episode } = defineProps<{
     <DisclosureButton
       class="flex w-full justify-between rounded-lg bg-yellow-300 px-4 py-2 text-left text-sm font-medium hover:bg-yellow-200"
     >
-      <span> Episode {{ episode.number }}: {{ episode.name }} </span>
+      <span data-id="episode-title"> Episode {{ episode.number }}: {{ episode.name }} </span>
       <ChevronUpIcon :class="open ? 'rotate-180 transform' : ''" class="h-5 w-5" />
     </DisclosureButton>
     <DisclosurePanel class="px-4 pb-2 pt-4 text-sm">
