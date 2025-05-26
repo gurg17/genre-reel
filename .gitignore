@@ -29,4 +29,7 @@ coverage
 
 *.tsbuildinfo
 
-*storybook.log
+test-results/
+playwright-report/
+
+.env
