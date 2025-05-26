@@ -5,9 +5,10 @@ import { SUCCESS } from '@/utils/constants'
 import EpisodeDetails from '@/components/EpisodeDetails.vue'
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
 import { ChevronUpIcon } from '@heroicons/vue/20/solid'
+import { Show } from '@/services/shows/types'
 
 const { id } = defineProps<{
-  id: string
+  id: Show['id']
 }>()
 
 const groupedEpisodes = ref({})

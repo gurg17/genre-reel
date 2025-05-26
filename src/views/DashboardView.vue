@@ -3,10 +3,10 @@ import { onMounted, ref } from 'vue'
 import { getShows } from '@/services/shows/ShowsService'
 import { SUCCESS } from '@/utils/constants'
 import GenreRow from '@/components/GenreRow.vue'
-import type { Genre, Show } from '@/services/shows/type'
+import type { Show } from '@/services/shows/types'
 
 interface ShowsByGenre {
-  [genre: Genre]: Show[]
+  [genre: string]: Show[]
 }
 
 const showsByGenre = ref<ShowsByGenre>({})

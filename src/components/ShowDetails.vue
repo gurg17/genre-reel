@@ -11,7 +11,7 @@ import CastsLayout from '@/components/CastsLayout.vue'
 import { useWatchlistStore } from '@/stores/watchlist'
 
 const { id } = defineProps<{
-  id: string
+  id: Show['id']
 }>()
 
 const show = ref<Show>({})

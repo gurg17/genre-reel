@@ -3,9 +3,10 @@ import { ref, onMounted } from 'vue'
 import { getShow } from '@/services/shows/ShowsService'
 import { SUCCESS } from '@/utils/constants'
 import ShowCard from '@/components/ShowCard.vue'
+import { Show } from '@/services/shows/types'
 
 const { id } = defineProps<{
-  id: string
+  id: Show['id']
 }>()
 
 const show = ref<Show | null>(null)
