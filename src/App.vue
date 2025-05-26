@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
-
-import NavBar from './components/ui/NavBar.vue'
+import NavBar from '@/components/NavBar.vue'
 </script>
 
 <template>
-  <body class="bg-gray-100 h-screen">
+  <body>
     <NavBar />
-    <div class="px-4 sm:px-6 lg:px-8">
+    <div class="p-4 sm:px-6 lg:px-8">
       <RouterView />
     </div>
   </body>
