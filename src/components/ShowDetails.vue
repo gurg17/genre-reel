@@ -9,6 +9,7 @@ import { SUCCESS } from '@/utils/constants'
 import type { Show } from '@/services/shows/type'
 import CastsLayout from '@/components/CastsLayout.vue'
 import { useWatchlistStore } from '@/stores/watchlist'
+import { useRouter } from 'vue-router'
 
 const { id } = defineProps<{
   id: Show['id']
@@ -17,6 +18,7 @@ const { id } = defineProps<{
 const show = ref<Show>({})
 
 const watchlistStore = useWatchlistStore()
+const router = useRouter()
 
 const onWatchlist = computed(() => watchlistStore.isOnWatchlist(id))
 
@@ -28,6 +30,12 @@ const handleWatchList = () => {
   }
 }
 
+watch(show, (newShow) => {
+  if (Object.keys(newShow).length === 0) {
+    router.push({ name: 'NotFound' })
+  }
+})
+
 watch(
   () => id,
   async (newId) => {
@@ -35,6 +43,7 @@ watch(
     if (getShowResponse.status === SUCCESS) {
       show.value = getShowResponse.data
     } else {
+      router.push({ name: 'NotFound' })
       console.error('Failed to fetch show')
     }
   },

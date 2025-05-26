@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Cast } from '@/services/shows/types'
-import { defineProps } from 'vue'
+import { type Cast } from '@/services/shows/types'
+
 import ImageComponent from '@/components/ui/ImageComponent.vue'
 
 const { cast } = defineProps<{ cast: Cast }>()

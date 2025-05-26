@@ -4,7 +4,6 @@ import { useWindowSize } from '@vueuse/core'
 import { computed } from 'vue'
 import type { Cast } from '@/services/shows/types'
 import CastDetails from '@/components/CastDetails.vue'
-import { defineProps } from 'vue'
 
 const { casts } = defineProps<{
   casts?: Cast[]

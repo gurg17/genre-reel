@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { defineProps } from 'vue'
 import ImageComponent from '@/components/ui/ImageComponent.vue'
 import { useRouter } from 'vue-router'
 import RatingTag from '@/components/RatingTag.vue'

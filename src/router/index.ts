@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import DashboardView from '../views/DashboardView.vue'
 import ShowView from '@/views/ShowView.vue'
 import MyWatchListView from '@/views/MyWatchListView.vue'
+import NotFoundView from '@/views/NotFoundView.vue'
 
 export const routes = {
   dashboard: {
@@ -35,6 +36,8 @@ const router = createRouter({
       name: routes.show.name,
       component: ShowView,
     },
+
+    { path: '/:catchAll(.*)', name: 'not-found', component: NotFoundView },
   ],
 })
 

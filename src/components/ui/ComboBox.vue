@@ -8,7 +8,7 @@ import {
   TransitionRoot,
 } from '@headlessui/vue'
 import ImageComponent from '@/components/ui/ImageComponent.vue'
-import { ref, computed, watch, defineProps, defineEmits } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { debounce } from '@/utils/helper'
 
 export type ComboBoxItem = { id: number | string; name: string; image?: string }
